@@ -31,9 +31,6 @@ class TasksViewModel @Inject constructor(
     private val _myTaskText = MutableLiveData<String>()
     val myTaskText: LiveData<String> = _myTaskText
 
-    // private val _tasks = mutableStateListOf<TaskModel>()
-    // val tasks: List<TaskModel> = _tasks
-
     val uiState: StateFlow<TaskUiState> =
         getTasksUseCase()
             .map(::Success)
@@ -49,14 +46,9 @@ class TasksViewModel @Inject constructor(
 
     fun onTaskCreated() {
         onDialogClose()
-
-        //Log.i("dam2", _myTaskText.value ?: "")
-        //_tasks.add(TaskModel(task = _myTaskText.value ?: ""))
-
         viewModelScope.launch {
             addTaskUseCase(TaskModel(task = _myTaskText.value ?: ""))
         }
-
         _myTaskText.value = ""
     }
 
@@ -69,13 +61,10 @@ class TasksViewModel @Inject constructor(
     }
 
     fun onItemRemove(taskModel: TaskModel) {
-        //val task = _tasks.find { it.id == taskModel.id }
-        //_tasks.remove(task)
+
     }
 
     fun onCheckBoxSelected(taskModel: TaskModel) {
-        //val index = _tasks.indexOf(taskModel)
-        //_tasks[index] = _tasks[index].let { it.copy(selected = !it.selected) }
 
     }
 
