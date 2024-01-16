@@ -74,6 +74,13 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.44")
     //LiveData
     implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+
+    //Room
+    implementation("androidx.room:room-runtime:2.5.0")
+    annotationProcessor("androidx.room:room-compiler:2.5.0")
+
+    //To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.5.0")
 }
 
 //Dagger Hilt - Allow references to generated code
